@@ -425,7 +425,7 @@ class PairMultiPositionMMRAnalyzer:
 
 
 if __name__ == "__main__":
-    from CONFIG import *
+    from common_utils.CONFIG import *
     verified_session, verified_cookies = login(prefix='mmadmin')
     verified_session1, verified_cookies1 = login(prefix='mmadminjp3')    
 

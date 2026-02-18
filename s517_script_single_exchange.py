@@ -23,9 +23,12 @@ from matplotlib.gridspec import GridSpec
 from matplotlib.backends.backend_pdf import PdfPages
 
 import ccxt
-from utils_Sep import *
-import CONFIG as C
-
+try:
+    from common_utils.utils_Sep import *
+    from common_utils import CONFIG as C
+except ImportError:
+    import CONFIG as C
+    from utils_Sep import *
 from typing import Dict, Any, List, Set, Optional, Tuple
 
 
