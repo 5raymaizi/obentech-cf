@@ -1,0 +1,29 @@
+exe_path: ../cf_arbitrage/cf_arbitrage
+base_dir: test
+bind: ":1223"
+prefix: #在/cf_arbitrage之前指定额外Prefix
+cf:
+  account: "Test1"
+  exchanges:
+    symbol1:
+      exchanges: binance
+      key: mcyiHcc0tnrJm8Y8zhdjqrkATauXTStTMq5PajoGiPXnJBlOWrJV1giwHwYDp2A8
+      secret: Wa3DmJTAd0MXJuEZPxrJ2iKh1TQ6FOzabIJHd9TrcI4b8ftwF9um5yLwtDEYFxF9
+    symbol2:
+      exchange: okex5
+      key: e991bed8-f269-4667-8148-ad47d48edcfd
+      secret: 792288BE340D8B3EE64EB0F24DF7A7DD:lD&H&h&GjYEc0TiJ
+
+  bot_id: e20a5cbb-ab43-44c8-8d38-a21df69ee494
+  im_bot_id: e20a5cbb-ab43-44c8-8d38-a21df69ee494 # 重要告警
+  acts:
+    rest: http://127.0.0.1:18686/
+    ws: ws://127.0.0.1:18686/ws
+  redis:
+    -
+      alias:     default
+      host:      127.0.0.1
+      port:      6379
+      password:  
+      max_idles: 10
+      maxConns:  10

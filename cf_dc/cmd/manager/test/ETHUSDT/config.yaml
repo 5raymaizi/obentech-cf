@@ -1,0 +1,41 @@
+account: Test1
+exchange: okex5
+key: e991bed8-f269-4667-8148-ad47d48edcfd
+secret: 792288BE340D8B3EE64EB0F24DF7A7DD:lD&H&h&GjYEc0TiJ
+spot: ETH_USDT
+swap: ETH-USDT-SWAP
+bot_id: e20a5cbb-ab43-44c8-8d38-a21df69ee494
+im_bot_id: e20a5cbb-ab43-44c8-8d38-a21df69ee494
+config:
+  queue:
+    msecs: 1000
+    open_threshold: 0.1
+    cancel_open_threshold: 0
+    close_threshold: -0.1
+    cancel_close_threshold: 0
+  log:
+    path: ""
+    level: debug
+  volume_open_min: 1
+  volume_open_limit: 3
+  open_tick_num: 0
+  replace_open_tick_num: 0
+  volume_close_min: 1
+  volume_close_limit: 3
+  close_tick_num: 0
+  replace_close_tick_num: 0
+  total_limit: -0.1
+  limit_pos: 0.1
+  volume_threshold0: 0.5
+  volume_threshold1: 0.5
+  volume_threshold2: 0.5
+  open_allowed: false
+  close_allowed: true
+  open_now: false
+  close_now: false
+  mode: ""
+  switch_swap_threshold: 0
+  funding_limit: 0.5
+acts:
+  rest: http://127.0.0.1:18686/
+  ws: ws://127.0.0.1:18686/ws

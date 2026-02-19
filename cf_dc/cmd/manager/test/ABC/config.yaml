@@ -1,0 +1,32 @@
+account: Test1
+key: ntmuw4rrsr-29f4c022-24fa6335-6239d
+secret: 2fb27025-ca72ff26-62904e70-423fa
+spot: ABC_USDT
+swap: ABCUSD_PERP
+bot_id: aab758eb-37e0-4a67-ad9f-15ada2c885f8
+im_bot_id: aab758eb-37e0-4a67-ad9f-15ada2c885f8
+config:
+  queue:
+    msecs: 1000
+    open_threshold: 1.1
+    close_threshold: -2
+  log:
+    path: ""
+    level: ""
+  volume_open_min: 0
+  volume_close_min: 0
+  volume_open_limit: 0
+  volume_close_limit: 0
+  total_limit: 0
+  limit_pos: 0
+  volume_threshold0: 0
+  volume_threshold1: 0
+  volume_threshold2: 0
+  open_allowed: false
+  close_allowed: false
+  open_now: false
+  close_now: false
+  funding_limit: 0
+acts:
+  rest: http://127.0.0.1:8686/
+  ws: ws://127.0.0.1:8686/ws

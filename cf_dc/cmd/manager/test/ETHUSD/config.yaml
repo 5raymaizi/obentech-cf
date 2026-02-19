@@ -1,0 +1,61 @@
+account: mm_cfdc_mt_b_test(bntest8-OKXZYCFTEST2)
+exchanges:
+  symbol1:
+    exchange: binance
+    key: 529e203c86dab84adf9ac45d10d40d9cf7003ffe126f6c5c0d51ed9c69e8a19c
+    secret: 02477211635611453cbfa285a156fa947e1aeed188f447bac7d966e7ffb55ea4
+  symbol2:
+    exchange: okex5
+    key: e991bed8-f269-4667-8148-ad47d48edcfd
+    secret: 792288BE340D8B3EE64EB0F24DF7A7DD:lD&H&h&GjYEc0TiJ
+spot: ETH_USDT
+swap1: DOTUSD_PERP
+swap2: DOT-USD-SWAP
+bot_id: e20a5cbb-ab43-44c8-8d38-a21df69ee494
+im_bot_id: e20a5cbb-ab43-44c8-8d38-a21df69ee494
+redis:
+  - &default
+    alias:  default
+    host:   47.112.176.20
+    port:   6379
+    password:   iwala.net..
+    max_idles: 10
+    maxConns:  10
+config:
+  queue:
+    msecs: 1000
+    open_threshold: 0.001
+    cancel_open_threshold: 0.001
+    close_threshold: 0.001
+    cancel_close_threshold: 0.001
+  log:
+    path: ""
+    level: ""
+  volume_open_min: 10.03
+  volume_open_limit: 10.03
+  open_tick_num: 1
+  replace_open_tick_num: 5
+  volume_close_min: 9.97
+  volume_close_limit: 9.97
+  close_tick_num: 1
+  replace_close_tick_num: 5
+  level1: 2
+  level2: 2
+  total_limit: 0
+  limit_pos1: 0.1
+  limit_pos2: 0.1
+  volume_threshold0: 0.6
+  volume_threshold1: 0.5
+  volume_threshold2: 0.5
+  open_allowed: false
+  close_allowed: false
+  open_now: false
+  close_now: false
+  mode: Swap1MSwap2T
+  switch_swap_threshold: 0
+  exception_ex_threshold: 0
+  total_ex_threshold: 0
+  funding_limit: 0
+acts:
+  rest: http://127.0.0.1:18686/
+  ws: http://127.0.0.1:18686/

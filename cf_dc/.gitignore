@@ -1,0 +1,10 @@
+*.exe
+*.log*
+*.csv
+*.data
+*.gz
+*.zip
+cmd/cf_arbitrage/cf_arbitrage_dc*
+cmd/manager/manager_dc*
+version
+*.tgz

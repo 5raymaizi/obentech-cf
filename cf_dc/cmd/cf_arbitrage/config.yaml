@@ -1,0 +1,30 @@
+key:  # api key
+secret:  # api secret
+spot: BNB_USDT
+swap: BNBUSD_PERP
+bot_id: 133c5ede-e94e-44a0-8b95-679daa88fde0
+config:
+  #配置 open_limit, close_limit
+  queue:
+    msecs: 500
+    open_threshold: -1
+    close_threshold: 0.1
+
+  volume_open_min: 1
+  volume_close_min: 1
+  volume_open_limit: 3
+  volume_close_limit: 3
+  total_limit: 0
+  limit_pos: 90
+  volume_threshold0: 0.6
+  volume_threshold1: 0.5
+  volume_threshold2: 0.5
+  open_allowed: false
+  close_allowed: true
+  open_now: false
+  close_now: false
+  funding_limit: -1
+
+acts:
+  rest: http://127.0.0.1:8686/
+  ws: ws://127.0.0.1:8686/ws
