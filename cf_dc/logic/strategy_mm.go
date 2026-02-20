@@ -51,7 +51,7 @@ func (sg *Strategy) openSwap1AndSwap2(ctx context.Context, swapC1, swapC2 exchan
 	if err := sg.PosList.CheckPosSideAmount(side, reverseSide(side)); err != nil {
 		return nil, err
 	}
-
+	// 初始化
 	var (
 		swap1Order = &exchange.CfOrder{}
 		swap2Order = &exchange.CfOrder{}
@@ -134,8 +134,8 @@ func (sg *Strategy) openSwap1AndSwap2(ctx context.Context, swapC1, swapC2 exchan
 		logger = sg.logger
 	}
 
-	switch code {
-	case 0:
+	switch code { // 0:成功, 1:swap1失败, 2:swap2失败, -1:两个单都失败
+	case 0:  //两边都下单成功，进入主循环
 		if placeMode != rate.Swap1TSwap2M {
 			swap1Order.IDs = append(swap1Order.IDs, order1.ID.String())
 			swap1Order.ID = order1.ID
@@ -655,10 +655,10 @@ func (sg *Strategy) openSwap1AndSwap2(ctx context.Context, swapC1, swapC2 exchan
 					}
 				}
 
-				if takerSr.LessThan(decimal.NewFromFloat(cfg.MmOpenTakerHedgeThreshold)) {
+				if takerSr.LessThan(decimal.NewFromFloat(cfg.MmOpenTakerHedgeThreshold)) { //takerSr < openTakerHedgeThreshold，则启用taker对冲
 					takerHedge = true
 					level.Info(logger).Log("message", "open nowSr < openTakerHedgeThreshold ", "nowSr", nowSr, "takerSr", takerSr, "swap1Ask1Price", swap1Ask1Price, "swap1Bid1Price", swap1Bid1Price, "swap2Ask1Price", swap2Ask1Price, "swap2Bid1Price", swap2Bid1Price)
-				} else if nowSr.LessThan(decimal.NewFromFloat(cfg.MmOpenMakerHedgeThreshold)) && !makerHedge {
+				} else if nowSr.LessThan(decimal.NewFromFloat(cfg.MmOpenMakerHedgeThreshold)) && !makerHedge { //nowSr < openMakerHedgeThreshold，则启用maker对冲
 					if order1 != nil && order1.Status < ccexgo.OrderStatusDone {
 						swap1Cancel = true
 					}
@@ -726,7 +726,7 @@ func (sg *Strategy) openSwap1AndSwap2(ctx context.Context, swapC1, swapC2 exchan
 					}
 					level.Info(logger).Log("message", "open nowSr < cancelOpenThreshold ", "nowSr", nowSr, "swap1Ask1Price", swap1Ask1Price, "swap1Bid1Price", swap1Bid1Price, "swap2Ask1Price", swap2Ask1Price, "swap2Bid1Price", swap2Bid1Price,
 						"swap1Cancel", swap1Cancel, "swap2Cancel", swap2Cancel, "swap1NeedReplace", swap1NeedReplace, "swap2NeedReplace", swap2NeedReplace, "finishedWork", finishedWork, "swap1End", swap1End, "swap2End", swap2End, "cancelFilled", cancelFilled)
-				} else {
+				} else { //正常情况
 					replaceTickNum1 := cfg.MmSwap1OpenReplaceTickNum
 					replaceTickNum2 := cfg.MmSwap2OpenReplaceTickNum
 
@@ -777,7 +777,7 @@ func (sg *Strategy) openSwap1AndSwap2(ctx context.Context, swapC1, swapC2 exchan
 						"cancelFilled", cancelFilled)
 				}
 
-			} else { // 做多价差
+			} else { // 做多价差，和做空价差对称
 				cancelNow := nowSr.GreaterThan(decimal.NewFromFloat(cfg.Queue.MmCancelCloseThreshold))
 				if cfg.SrMode != rate.SrNormal && cfg.EnableStatCancel {
 					srString := sg.queue.GetSrClose2(rate.Swap1MSwap2M, cfg.SrMode)
