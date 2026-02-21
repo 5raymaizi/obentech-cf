@@ -150,8 +150,7 @@ func (sg *Strategy) openSwap1AndSwap2(ctx context.Context, swapC1, swapC2 exchan
 	one := decimal.NewFromFloat(1) // 常量1，用于计算 SR = price2/price1 - 1
 
 	// 【tick偏移量】决定挂单价格相对盘口最优价的偏移距离
-	// side==Buy(做空价差): swap1在ask侧买入(tick往内偏移), swap2在bid侧卖出(tick往内偏移)
-	// side==Sell(做多价差): 方向相反，使用CloseTickNum
+	// 控制台上的TickNum参数
 	openTickNum1 := float64(cfg.MmSwap1OpenTickNum)
 	openTickNum2 := float64(cfg.MmSwap2OpenTickNum)
 	if side == ccexgo.OrderSideSell {
