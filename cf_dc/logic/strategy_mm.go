@@ -363,7 +363,7 @@ func (sg *Strategy) openSwap1AndSwap2(ctx context.Context, swapC1, swapC2 exchan
 					return nil, fmt.Errorf("%+v\nswap2单边挂单成功，撤单异常\n%+v\nswap1挂单失败\n%+v", swap2Order, err, errMsg)
 					// }
 				}
-			}
+			}  // 如果撤单过程中发现swap2已有成交，记录这部分真实成交
 			if o.Filled.IsPositive() {
 				order2.Status = o.Status
 				order2.Filled = o.Filled
@@ -483,6 +483,7 @@ func (sg *Strategy) openSwap1AndSwap2(ctx context.Context, swapC1, swapC2 exchan
 			goto checkAndHedge
 		case <-ctx.Done():
 			// 【分支B: 程序退出信号】并发撤掉两边未完成的挂单，更新成交信息，然后taker对冲
+			// 还没有搞清楚
 			var order1ID, order2ID string
 			if order1 != nil {
 				order1ID = order1.ID.String()
