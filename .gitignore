@@ -1,4 +1,7 @@
 
 # generated outputs
 POWERUSDT_inversion_20260223/funding_prediction_output_bn_okx/
-*.csv
+# notebooks
+.ipynb_checkpoints/
+
+
