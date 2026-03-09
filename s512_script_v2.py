@@ -20,6 +20,9 @@ pd.set_option('display.max_columns', None)
 # 设置日志
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
+
+
+
 PORTFOLIO_CONFIG = {
     'pmpro': {
         'base_path': '/data/vhosts/cf_dc/manager_maker_dc_pmpro_test/app',
@@ -29,6 +32,22 @@ PORTFOLIO_CONFIG = {
         'denominator_ratio': 0.04,
         'long_term_start': '2025-05-22 06:00:00'
     },
+    'dcbb1': {
+        'base_path': '/data_file/CF_data/cf_dc/manager_dcbb1/app',
+        'total_capital': 1350000,
+        'title_prefix': 'Dcbb1(ltp15BTC) PnL',
+        'file_suffix': '_dcbb1',
+        'denominator_ratio': 0.04,
+        'long_term_start': '2025-01-01 04:00:00'
+    },   
+    'dctest6': {
+        'base_path': '/data_file/CF_data/cf_dc/manager_dctest6/app',
+        'total_capital': 10000,
+        'title_prefix': 'dctest6(1WU) PnL',
+        'file_suffix': '_dctest6',
+        'denominator_ratio': 0.04,
+        'long_term_start': '2025-02-28 04:00:00'
+    },  
     'dcpro1': {
         'base_path': '/data_file/CF_data/cf_dc/manager_dcpro1/app',
         'total_capital': 1000000,
@@ -356,14 +375,8 @@ PORTFOLIO_CONFIG = {
         'denominator_ratio': 0.04,
         'long_term_start': '2026-01-25 00:00:00'
     },   
-    'dcbb1': {
-        'base_path': '/data_file/CF_data/cf_dc/manager_dcbb1/app',
-        'total_capital': 1350000,
-        'title_prefix': 'Dcbb1(ltp15BTC) PnL',
-        'file_suffix': '_dcbb1',
-        'denominator_ratio': 0.04,
-        'long_term_start': '2025-01-01 04:00:00'
-    },   
+
+
     # 'dcbb2': {
     #     'base_path': '/data_file/CF_data/cf_dc/manager_dcbb2/app',
     #     'total_capital': 400000,
